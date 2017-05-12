@@ -1,0 +1,37 @@
+body {
+  background-color: #f1f1f1;
+  color:#333;
+}
+
+header {
+  background-color:#333;
+  color:#fff;
+  padding:20px;
+  a {
+    color:#fff;
+    padding:10px;
+    text-decoration:none;
+    &:hover {
+      color:teal;
+    }
+  }
+}
+
+.main {
+  padding:20px;
+}
+
+label {
+  display:block;
+  padding:10px 0 0 0;
+}
+
+input {
+  font-size:1em;
+}
+
+button {
+  display:block;
+  padding:10px;
+  margin:10px 0;
+}

@@ -1,0 +1,31 @@
+### Mac ###
+.DS_Store
+
+### Win ###
+Thumbs.db
+ehthumbs.db
+
+### IntelliJ ###
+.idea
+
+### Log files ###
+*.log
+
+### Node ###
+# Logs
+logs
+*.log
+
+### Runtime data ###
+pids
+*.pid
+*.seed
+
+### Local Env ###
+dist
+build
+typings
+bower_components
+node_modules
+tmp
+assets
