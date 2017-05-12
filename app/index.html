@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body ng-cloak>
+<body ng-cloak ng-controller="DashboardController">
 
     <!--[if lt IE 10]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</p>
@@ -27,6 +27,8 @@
       <!-- This is where your content will be output -->
       <div>
         Hello World!
+        <br>
+        {{ name }}
       </div>
     </div>
 
@@ -36,13 +38,28 @@
     <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
 
     <!-- Our App Specific -->
-    <script>
-    /*
-      Module: where you initialize everything
-      The array is where you inject your dependencies, such as 3rd party libraries
-    */
+    <script src="/dashboard/dashboard-module.js"></script>
 
-    var demoApp = angular.module("myApp", ['ui.router']);
+    <script>
+    (function() {
+
+      //This array is to inject your parameters
+        // It is needed so when your code is minified, your parameters don't get overwritten and then break your app. For example, they can get overwritten as letters instead of the actual names that they need to be called
+        // They must be in the same order that they're going to be injected
+      var injectParams = ['$scope'];
+
+      function DashboardController($scope) {
+
+        $scope.name = "Step 2: Controller";
+
+      };
+
+      DashboardController.$inject = injectParams;
+
+      demoApp.controller('DashboardController', DashboardController);
+
+    }());
+
     </script>
 
 
