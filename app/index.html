@@ -18,14 +18,16 @@
 
     <header>
       <nav>
-        <a href="#!/">Home</a>
-        <a href="#!/add">Add</a>
+        <a href="#">Home</a>
+        <a href="#">Add</a>
       </nav>
     </header>
 
     <div class="main">
       <!-- This is where your content will be output -->
-      <ui-view></ui-view>
+      <div>
+        Hello World!
+      </div>
     </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
@@ -34,15 +36,14 @@
     <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
 
     <!-- Our App Specific -->
-    <script src="/dashboard/dashboard-module.js"></script>
+    <script>
+    /*
+      Module: where you initialize everything
+      The array is where you inject your dependencies, such as 3rd party libraries
+    */
 
-    <script src="/dashboard/dashboard-controller.js"></script>
-    <script src="/addshoe/add-controller.js"></script>
-
-    <script src="/dashboard/dashboard-routes.js"></script>
-    <script src="/addshoe/add-routes.js"></script>
-
-    <script src="/services/shoes-service.js"></script>
+    var demoApp = angular.module("myApp", ['ui.router']);
+    </script>
 
 
 
