@@ -26,9 +26,9 @@
     <div class="main">
       <!-- This is where your content will be output -->
       <div>
-        Hello World!
-        <br>
-        {{ name }}
+        <ul ng-repeat="shoe in shoes">
+          <li>{{ shoe.brand }} {{ shoe.name }} {{ shoe.date }}</li>
+        </ul>
       </div>
     </div>
 
@@ -40,23 +40,45 @@
     <!-- Our App Specific -->
     <script src="/dashboard/dashboard-module.js"></script>
 
+    <script src="/dashboard/dashboard-controller.js"></script>
+
     <script>
+
     (function() {
 
-      //This array is to inject your parameters
-        // It is needed so when your code is minified, your parameters don't get overwritten and then break your app. For example, they can get overwritten as letters instead of the actual names that they need to be called
-        // They must be in the same order that they're going to be injected
-      var injectParams = ['$scope'];
+      demoApp.factory('ShoesService', function() {
 
-      function DashboardController($scope) {
+        var factory = {};
 
-        $scope.name = "Step 2: Controller";
+        var shoes = [
+          {
+            name: 'Retro 15',
+            date: 'May 12, 2017',
+            brand: 'Jordan'
+          },
+          {
+            name: 'Retro 16',
+            date: 'May 12, 2017',
+            brand: 'Jordan'
+          },
+          {
+            name: 'Retro 17',
+            date: 'May 12, 2017',
+            brand: 'Jordan'
+          },
+          {
+            name: 'Retro 18',
+            date: 'May 12, 2017',
+            brand: 'Jordan'
+          }
+        ];
 
-      };
+        factory.getShoes = function() {
+          return shoes;
+        };
 
-      DashboardController.$inject = injectParams;
-
-      demoApp.controller('DashboardController', DashboardController);
+        return factory;
+      });
 
     }());
 
