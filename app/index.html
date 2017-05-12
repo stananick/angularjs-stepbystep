@@ -25,11 +25,7 @@
 
     <div class="main">
       <!-- This is where your content will be output -->
-      <div>
-        <ul ng-repeat="shoe in shoes">
-          <li>{{ shoe.brand }} {{ shoe.name }} {{ shoe.date }}</li>
-        </ul>
-      </div>
+      <ui-view></ui-view>
     </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
@@ -42,49 +38,22 @@
 
     <script src="/dashboard/dashboard-controller.js"></script>
 
-    <script>
+    <script src="/services/shoes-service.js"></script>
 
+    <script>
     (function() {
 
-      demoApp.factory('ShoesService', function() {
-
-        var factory = {};
-
-        var shoes = [
-          {
-            name: 'Retro 15',
-            date: 'May 12, 2017',
-            brand: 'Jordan'
-          },
-          {
-            name: 'Retro 16',
-            date: 'May 12, 2017',
-            brand: 'Jordan'
-          },
-          {
-            name: 'Retro 17',
-            date: 'May 12, 2017',
-            brand: 'Jordan'
-          },
-          {
-            name: 'Retro 18',
-            date: 'May 12, 2017',
-            brand: 'Jordan'
-          }
-        ];
-
-        factory.getShoes = function() {
-          return shoes;
-        };
-
-        return factory;
+      demoApp.config(function($stateProvider) {
+        $stateProvider
+          .state('default', {
+            url:'/',
+            templateUrl: '/dashboard/dashboard.html',
+            controller: 'DashboardController'
+          })
       });
 
     }());
-
     </script>
-
-
 
 </body>
 </html>
