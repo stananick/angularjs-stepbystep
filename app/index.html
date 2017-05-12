@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body ng-cloak ng-controller="DashboardController">
+<body ng-cloak >
 
     <!--[if lt IE 10]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</p>
@@ -29,8 +29,11 @@
         Hello World!
         <br>
         {{ name }}
+        {{ rsTest }}
       </div>
     </div>
+
+    <div ng-controller="DashboardController"></div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
@@ -46,11 +49,14 @@
       //This array is to inject your parameters
         // It is needed so when your code is minified, your parameters don't get overwritten and then break your app. For example, they can get overwritten as letters instead of the actual names that they need to be called
         // They must be in the same order that they're going to be injected
-      var injectParams = ['$scope'];
+      var injectParams = ['$scope', '$rootScope'];
 
-      function DashboardController($scope) {
+      function DashboardController($scope, $rootScope) {
 
         $scope.name = "Step 2: Controller";
+
+        //This is solely to show that rootscope is available everywhere in the app, even if defined in a different controller
+        $rootScope.rsTest = 'This is a root scope example';
 
       };
 
