@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body ng-cloak ng-controller="DashboardController">
+<body ng-cloak>
 
     <!--[if lt IE 10]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</p>
@@ -18,8 +18,8 @@
 
     <header>
       <nav>
-        <a href="#">Home</a>
-        <a href="#">Add</a>
+        <a href="#!/">Home</a>
+        <a href="#!/add">Add</a>
       </nav>
     </header>
 
@@ -37,23 +37,12 @@
     <script src="/dashboard/dashboard-module.js"></script>
 
     <script src="/dashboard/dashboard-controller.js"></script>
+    <script src="/add-shoe/add-controller.js"></script>
+
+    <script src="/dashboard/dashboard-routes.js"></script>
+    <script src="/add-shoe/add-routes.js"></script>
 
     <script src="/services/shoes-service.js"></script>
-
-    <script>
-    (function() {
-
-      demoApp.config(function($stateProvider) {
-        $stateProvider
-          .state('default', {
-            url:'/',
-            templateUrl: '/dashboard/dashboard.html',
-            controller: 'DashboardController'
-          })
-      });
-
-    }());
-    </script>
 
 </body>
 </html>
