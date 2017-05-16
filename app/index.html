@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body ng-cloak >
+<body ng-cloak>
 
     <!--[if lt IE 10]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</p>
@@ -18,19 +18,14 @@
 
     <header>
       <nav>
-        <a href="#">Home</a>
-        <a href="#">Add</a>
+        <a href="#!/">Home</a>
+        <a href="#!/add">Add</a>
       </nav>
     </header>
 
     <div class="main">
       <!-- This is where your content will be output -->
-      <div>
-        Hello World!
-        <br>
-        {{ name }}
-        {{ rsTest }}
-      </div>
+      <ui-view></ui-view>
     </div>
 
     <div ng-controller="DashboardController"></div>
@@ -42,33 +37,14 @@
 
     <!-- Our App Specific -->
     <script src="/dashboard/dashboard-module.js"></script>
+    
+    <script src="/dashboard/dashboard-controller.js"></script>
+    <script src="/add-shoe/add-controller.js"></script>
+  
+    <script src="/dashboard/dashboard-routes.js"></script>
+    <script src="/add-shoe/add-routes.js"></script>
 
-    <script>
-    (function() {
-
-      //This array is to inject your parameters
-        // It is needed so when your code is minified, your parameters don't get overwritten and then break your app. For example, they can get overwritten as letters instead of the actual names that they need to be called
-        // They must be in the same order that they're going to be injected
-      var injectParams = ['$scope', '$rootScope'];
-
-      function DashboardController($scope, $rootScope) {
-
-        $scope.name = "Step 2: Controller";
-
-        //This is solely to show that rootscope is available everywhere in the app, even if defined in a different controller
-        $rootScope.rsTest = 'This is a root scope example';
-
-      };
-
-      DashboardController.$inject = injectParams;
-
-      demoApp.controller('DashboardController', DashboardController);
-
-    }());
-
-    </script>
-
-
+    <script src="/services/shoes-service.js"></script>
 
 </body>
 </html>
